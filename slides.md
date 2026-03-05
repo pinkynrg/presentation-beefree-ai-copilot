@@ -164,8 +164,8 @@ layout: center
 3. Architecture
 4. The challenges we faced
 5. How we solved them
-6. Live Demo
-7. Lessons Learned
+6. Lessons Learned
+7. Live Demo
 8. What's Next
 
 ---
@@ -443,11 +443,11 @@ graph LR
 # The challenges we faced
 
 1. **Consistency**: Tools get called correctly, but not consistently. <br/>Use blue in row 1, red in row 2, blue again in row 3.
-2. **Prompt engineering**: Every line you add to the system prompt competes with every line already there. <br/> By adding you dellute.
+2. **Probabilistic execution**: Just because you ask for something in a prompt doesn't guarantee it happens 100% of the time. LLMs are non-deterministic by nature.
+3. **Prompt engineering**: Every line you add to the system prompt competes with every line already there. By adding you dilute.
 4. **Evaluating correctness**: You can't unit test an agent. Knowing if it's doing a good job is non-trivial.
 5. **LLMs know HTML, CSS, Python, React** and other common languages fluently. 
-They've seen them millions of times. <br/>
-On the other hand **LLM doesn't know Beefree custom JSON format** or our specific **MCP toolset**.
+On the other hand **LLMs don't know Beefree custom JSON format** or our specific **MCP toolset**.
 
 
 > Our email JSON format is harder to work with but it's **why our emails render correctly on many email clients**.
@@ -543,7 +543,7 @@ onUnmounted(() => {
 </div>
 
 <div :style="{ opacity: step >= 1 ? 1 : 0.3, transition: 'opacity 0.4s', marginBottom: '0.5rem' }">
-<div style="font-weight: bold; margin-bottom: 0.2rem; font-size: 0.7rem;">1. Planner generates JSON:</div>
+<div style="font-weight: bold; margin-bottom: 0.2rem; font-size: 0.7rem;">1. Planner agent generates JSON:</div>
 <pre style="background: #f8f6ff; padding: 0.5rem; border-radius: 6px; font-size: 0.6rem; margin: 0; overflow: hidden; line-height: 1.3;">{ 
   "palette": { "primary": "#0000ff" },
   "sections": [
@@ -554,7 +554,7 @@ onUnmounted(() => {
 }</pre>
 </div>
 
-<div v-if="step >= 2" style="font-weight: bold; margin-bottom: 0.3rem; font-size: 0.75rem;">2. Executor runs it → Result:</div>
+<div v-if="step >= 2" style="font-weight: bold; margin-bottom: 0.3rem; font-size: 0.75rem;">2. Executor (not an agent) runs it → Result:</div>
 
 <div v-if="step >= 2" style="display: flex; flex-direction: column; gap: 0.4rem;">
 <div :style="{ background: '#0000ff', height: '30px', borderRadius: '6px', opacity: step >= 2 ? 1 : 0, transition: 'opacity 0.5s' }"></div>
@@ -574,6 +574,19 @@ onUnmounted(() => {
 </div>
 
 ---
+
+# Lessons Learned
+
+1. **JSON output schema is the key to good results.**  
+   A tight output schema changes everything.
+
+2. **Less AI is sometimes the right call.**  
+   The executor story. Deterministic beats autonomous when you need reliability.
+
+3. **Prompt engineering is never done — and addition is the enemy.**  
+   Every edge case someone wants to fix with a new line. Resist it.
+
+---
 layout: center
 class: text-center
 ---
@@ -581,7 +594,7 @@ class: text-center
 # Demo
 
 <div class="mt-8 text-lg opacity-70" style="font-style: italic;">
-"Please, god of the demo, stay with us..."
+"Please, God of demos, stay with us..."
 </div>
 
 ---
@@ -654,19 +667,6 @@ const toggleZoom = (index) => {
     </button>
   </div>
 </div>
-
----
-
-# Lessons Learned
-
-1. **JSON output schema is the key to good results.**  
-   A tight output schema changes everything.
-
-2. **Less AI is sometimes the right call.**  
-   The executor story. Deterministic beats autonomous when you need reliability.
-
-3. **Prompt engineering is never done — and addition is the enemy.**  
-   Every edge case someone wants to fix with a new line. Resist it.
 
 ---
 
