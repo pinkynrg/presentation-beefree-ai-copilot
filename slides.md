@@ -15,7 +15,145 @@ fonts:
   mono: 'Roboto Mono'
 ---
 
-# Beefree AI Co-Pilot
+# AI Co-Pilot
+
+Amplifying creativity inside Beefree/RGE Studio
+
+---
+
+# AI is becoming the baseline
+
+<div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: center;">
+
+<div>
+
+From **Stensul** to **Knak**, from **Mailchimp** to **ActiveCampaign**,  
+the message is the same: *"Give us a prompt. We'll generate your campaign."*
+
+- Full emails
+- Layouts + copy
+- Even automation logic
+
+<div class="mt-8">
+
+**But is speed alone enough?**
+
+</div>
+
+</div>
+
+<div>
+<img src="/assets/guy.png" style="width: 100%; height: auto; border-radius: 8px;" />
+</div>
+
+</div>
+
+---
+
+# Speed without control is not the future
+
+Distributed teams working across complex stacks do not just want automation. They care about:
+
+- **Brand integrity**
+- **Accessibility**
+- **Clean, stable HTML**
+- **Control**
+
+<div class="mt-8">
+
+> The real question is: What does responsible, reliable AI look like inside the tools professionals trust every day?
+
+</div>
+
+---
+
+# Assistive. Not autonomous.
+
+<div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: center;">
+
+<div>
+
+Our AI Co-Pilot does not replace humans, but it is:
+
+- An **assistant**
+- A **co-creator**
+- A **force multiplier** for human creativity
+
+<div class="mt-8 text-xl">
+
+An **intelligent design partner**!
+
+</div>
+
+</div>
+
+<div>
+<img src="/assets/design-partner.png" style="width: 100%; height: auto; border-radius: 8px;" />
+</div>
+
+</div>
+
+---
+
+# AI Co-Pilot in Beefree/RGE Studio
+
+<div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: center;">
+
+<div>
+
+The customer brings:
+- The **idea**
+- The **brief**
+- The **brand**
+
+<div class="mt-8">
+
+The AI Co-Pilot helps turn that into a full, stable, on-brand email inside the design environment they already trust.
+
+</div>
+
+</div>
+
+<div>
+<img src="/assets/new-ideas.png" style="width: 100%; height: auto; border-radius: 8px;" />
+</div>
+
+</div>
+
+---
+layout: center
+---
+
+<div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: center;">
+
+<div>
+
+<h1 style="font-size: 2.5rem; line-height: 1.3;">We are not automating creativity.</h1>
+<h1 style="font-size: 2.5rem; line-height: 1.3; margin-top: 1rem;">We are <span style="color: #7747ff;">amplifying</span> it.</h1>
+
+<p style="margin-top: 2rem; font-size: 0.9rem;">
+<a href="https://growens.atlassian.net/wiki/spaces/BEEPro/pages/6270877697/Beefree+App+-+AI+Co-Pilot+-+Beta+version" target="_blank" style="color: #7747ff; text-decoration: none; border-bottom: 1px solid #7747ff;">Beefree AI Co-Pilot internal docs</a>
+</p>
+
+</div>
+
+<div>
+<img src="/assets/party.png" style="width: 100%; height: auto; border-radius: 8px;" />
+</div>
+
+</div>
+
+---
+layout: center
+---
+
+<div style="text-align: center;">
+
+# Now, let's get more technical
+
+<p style="font-size: 1.2rem; color: #666; margin-top: 1rem;">A deep dive into how we built it</p>
+
+</div>
 
 ---
 
