@@ -213,7 +213,7 @@ A collection of tools with labels describing what each tool should be used for
 
 ---
 
-# Agent vs Tools (Technical)
+# Agent vs Tools
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -240,17 +240,17 @@ onUnmounted(() => {
 <div style="font-size: 0.75rem; line-height: 1.4;">
 
 <div style="background: #f8f6ff; padding: 0.5rem; border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid #7747ff;">
-<code style="color: #7747ff; font-weight: bold; font-size: 0.7rem;">beefree_add_section</code><br/>
+<span style="color: #7747ff; font-weight: bold; font-size: 0.7rem;">beefree_add_section</span><br/>
 <span style="color: #666; font-size: 0.65rem;">Creates email rows</span>
 </div>
 
 <div style="background: #f8f6ff; padding: 0.5rem; border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid #7747ff;">
-<code style="color: #7747ff; font-weight: bold; font-size: 0.7rem;">beefree_add_image</code><br/>
+<span style="color: #7747ff; font-weight: bold; font-size: 0.7rem;">beefree_add_image</span><br/>
 <span style="color: #666; font-size: 0.65rem;">Adds images</span>
 </div>
 
 <div style="background: #f8f6ff; padding: 0.5rem; border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid #7747ff;">
-<code style="color: #7747ff; font-weight: bold; font-size: 0.7rem;">beefree_add_button</code><br/>
+<span style="color: #7747ff; font-weight: bold; font-size: 0.7rem;">beefree_add_button</span><br/>
 <span style="color: #666; font-size: 0.65rem;">Creates buttons</span>
 </div>
 
@@ -331,15 +331,67 @@ onUnmounted(() => {
 
 ---
 
+<style>
+.cycle-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.cycle-card li {
+  margin: 0.3rem 0;
+}
+</style>
+
 # Beefree AI Co-Pilot Capabilities
 
-- **Better email creation** from natural language prompts
-- **Basic email editing** of existing designs
-- **Attachments** pdf and txt files for the LLM to read and extract information from
-- **Workspace styles** can be attached to the prompt, so the LLM can match the brand's look and feel
-- **Create with AI** CTA button in the projects list page
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem; margin-top: 2rem; font-size: 0.9rem;">
 
-> This is a **Beta**, more cycles ahead for improvements and new features.
+<div class="cycle-card" style="background: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%); padding: 1.2rem; border-radius: 12px; min-height: 220px; box-shadow: 0 4px 12px rgba(119, 71, 255, 0.15); border: 1px solid #e8deff;">
+
+<h3 style="text-align: center; color: #7747ff; margin-bottom: 0rem !important; font-size: 1.1rem;">Cycle 1</h3>
+<div style="text-align: center; color: #999; font-size: 0.75rem; margin-bottom: 1rem;">Sep - Oct</div>
+
+- **Tech stack setup**
+- **Basic agent**
+- **Attachments**
+- **Chat engine**
+- **Traceability setup**
+
+</div>
+
+<div class="cycle-card" style="background: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%); padding: 1.2rem; border-radius: 12px; min-height: 220px; box-shadow: 0 4px 12px rgba(119, 71, 255, 0.15); border: 1px solid #e8deff;">
+
+<h3 style="text-align: center; color: #7747ff; margin-bottom: 0rem !important; font-size: 1.1rem;">Cycle 2</h3>
+<div style="text-align: center; color: #999; font-size: 0.75rem; margin-bottom: 1rem;">Nov - Dec</div>
+
+- **Email creation ↑**
+- **User feedbacks**
+- **User reports**
+- **Stop requests**
+- **Bug hunt**
+
+</div>
+
+<div class="cycle-card" style="background: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%); padding: 1.2rem; border-radius: 12px; min-height: 220px; box-shadow: 0 4px 12px rgba(119, 71, 255, 0.15); border: 1px solid #e8deff;">
+
+<h3 style="text-align: center; color: #7747ff; margin-bottom: 0rem !important; font-size: 1.1rem;">Cycle 3</h3>
+<div style="text-align: center; color: #999; font-size: 0.75rem; margin-bottom: 1rem;">Jan - Feb</div>
+
+- **Email creation ↑↑**
+- **Email editing**
+- **Workspace styles**
+- **Create with AI**
+- **Bug hunt**
+
+</div>
+
+<div style="background: linear-gradient(135deg, #ffffff 0%, #f8f6ff 100%); padding: 1.2rem; border-radius: 12px; min-height: 220px; box-shadow: 0 4px 12px rgba(119, 71, 255, 0.08); border: 2px dashed #e8deff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+<div style="font-size: 2.5rem; color: #7747ff; opacity: 0.4; margin-bottom: 0.5rem;">...</div>
+<div style="color: #7747ff; opacity: 0.6; font-style: italic; text-align: center; font-size: 0.85rem;">More cycles<br/>to come</div>
+
+</div>
+
+</div>
 
 ---
 layout: default
