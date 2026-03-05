@@ -442,15 +442,15 @@ graph LR
 
 # The challenges we faced
 
-1. **Tool calling reliability**: Agents don't always call the right tool at the right time.
-2. **Prompt engineering**: Every line you add competes with every line already there. The real skill is **subtraction**.
-3. **Color contrasts**: Ensuring text is readable against background colors.
+1. **Consistency**: Tools get called correctly, but not consistently. <br/>Use blue in row 1, red in row 2, blue again in row 3.
+2. **Prompt engineering**: Every line you add to the system prompt competes with every line already there. <br/> By adding you dellute.
 4. **Evaluating correctness**: You can't unit test an agent. Knowing if it's doing a good job is non-trivial.
-5. LLMs know **HTML, Python, React** and other common languages fluently. 
-They've seen them millions of times. On the other hand it doesn't know **Beefree custom JSON format** or our specific **MCP toolset**.
+5. **LLMs know HTML, CSS, Python, React** and other common languages fluently. 
+They've seen them millions of times. <br/>
+On the other hand **LLM doesn't know Beefree custom JSON format** or our specific **MCP toolset**.
 
 
-> Beefree's JSON is harder to work with but it's **why emails render correctly everywhere**.
+> Our email JSON format is harder to work with but it's **why our emails render correctly on many email clients**.
 
 ---
 
@@ -579,15 +579,12 @@ const toggleZoom = (index) => {
 # Lessons Learned
 
 1. **JSON output schema is the key to good results.**  
-   Garbage in, garbage out — a tight schema changes everything.
+   A tight output schema changes everything.
 
-2. **Teach the LLM your mental model, not just your format.**  
-   Our builder has no concept of a "body" — the LLM kept trying to create one. You have to rewire its assumptions.
-
-3. **Less AI is sometimes the right call.**  
+2. **Less AI is sometimes the right call.**  
    The executor story. Deterministic beats autonomous when you need reliability.
 
-4. **Prompt engineering is never done — and addition is the enemy.**  
+3. **Prompt engineering is never done — and addition is the enemy.**  
    Every edge case someone wants to fix with a new line. Resist it.
 
 ---
