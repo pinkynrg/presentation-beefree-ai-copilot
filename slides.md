@@ -373,7 +373,9 @@ onUnmounted(() => {
 
 </div>
 
-<div class="cycle-card" style="background: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%); padding: 1.2rem; border-radius: 12px; min-height: 220px; box-shadow: 0 4px 12px rgba(119, 71, 255, 0.15); border: 1px solid #e8deff;">
+<div class="cycle-card" style="background: linear-gradient(135deg, #fff5f5 0%, #ffe8f0 100%); padding: 1.2rem; border-radius: 12px; min-height: 220px; box-shadow: 0 8px 24px rgba(255, 68, 68, 0.25); border: 1px solid #ff4444; position: relative;">
+
+<div style="position: absolute; top: -12px; right: 12px; background: #ff4444; color: white; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.7rem; font-weight: bold; box-shadow: 0 2px 8px rgba(255, 68, 68, 0.4);">BETA</div>
 
 <h3 style="text-align: center; color: #7747ff; margin-bottom: 0rem !important; font-size: 1.1rem;">Cycle 3</h3>
 <div style="text-align: center; color: #999; font-size: 0.75rem; margin-bottom: 1rem;">Jan - Feb</div>
@@ -460,9 +462,9 @@ On the other hand **LLMs don't know Beefree custom JSON format** or our specific
 
 **The key insight:** Separate planning from execution.
 
-1. **Planner creates a structured plan** — Instead of letting the agent call tools directly, we ask it to generate a detailed plan in a predefined JSON format.
+1. **Planner creates a structured plan**: Instead of letting the agent call tools directly, we ask it to generate a detailed plan in a predefined JSON format.
 
-2. **Executor runs the plan deterministically** — Tool calls are no longer made by the agent. The executor reads the plan and programmatically calls the right tools in the right sequence.
+2. **Executor runs the plan deterministically**: Tool calls are no longer made by the agent. The executor reads the plan and programmatically calls the right tools in the right sequence.
 
 <div class="mt-8">
 
@@ -579,13 +581,13 @@ onUnmounted(() => {
 
 # Lessons Learned
 
-1. **JSON output schema is the key to good results.**  
+1. **A structured plan is likely one key to good results.**  
    A tight output schema changes everything.
 
 2. **Less AI is sometimes the right call.**  
-   The executor story. Deterministic beats autonomous when you need reliability.
+   Deterministic beats autonomous when you need reliability.
 
-3. **Prompt engineering is never done — and addition is the enemy.**  
+3. **Prompt engineering is never done, and addition is the enemy.**  
    Every edge case someone wants to fix with a new line. Resist it.
 
 ---
@@ -595,7 +597,7 @@ class: text-center
 
 # Demo
 
-<div class="mt-8 text-lg opacity-70" style="font-style: italic;">
+<div class="mt-8 text-lg" style="font-style: italic;">
 "Please, God of demos, stay with us..."
 </div>
 
@@ -621,7 +623,6 @@ const toggleZoom = (index) => {
     :key="i" 
     :style="{
       overflow: 'hidden',
-      border: '1px solid #e0e0e0',
       borderRadius: '4px',
       position: 'relative',
       display: zoomedIframe !== null && zoomedIframe !== i ? 'none' : 'block',
@@ -674,19 +675,19 @@ const toggleZoom = (index) => {
 
 # What's Next
 
-We're still learning. Two directions we're actively exploring:
-
-- **Fine-tuning on our toolset**  
-  Instead of teaching the LLM our JSON through prompts, train it to speak our language natively.
+Some of the next steps we are excited about:
 
 - **Parallelizing the planner**  
   Split into an orchestrator + N parallel section planners. Faster, and better at complex multi-section emails.
 
-<div class="mt-8 text-xl">
+- **UX refinements**  
+  Better feedback loops: revert actions, loading states, and smoother editing experience.
 
-> "The Beefree AI Co-Pilot you saw today is v1. The interesting part is just starting."
+- **Personalized context**  
+  Smart copy suggestions and learning from your patterns: styles, templates, and workflows you use most.
 
-</div>
+- **Hackaton: Fine-tuning open source LLM on our toolset**  
+  Instead of teaching the LLM our JSON through prompts, train it to speak our MCP tools natively.
 
 ---
 layout: center
