@@ -178,10 +178,10 @@ layout: center
 <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">🔧</div>
 <h3 style="text-align: center; color: #7747ff; margin-bottom: 1rem;">Tool</h3>
 <div style="text-align: center; font-size: 0.9rem; line-height: 1.8;">
-<div style="margin-bottom: 0.8rem;">🔨 <strong>Hammer</strong><br/>drives nails</div>
-<div style="margin-bottom: 0.8rem;">🪛 <strong>Screwdriver</strong><br/>turns screws</div>
-<div style="margin-bottom: 0.8rem;">📏 <strong>Ruler</strong><br/>measures length</div>
-<div style="color: #999; font-size: 0.85rem; font-style: italic;">...and 50+ more</div>
+<div style="margin-bottom: 0.8rem;">🔫 <strong>Drill</strong><br/>makes holes</div>
+<div style="margin-bottom: 0.8rem;">📏 <strong>Ruler</strong><br/>measures length</div><div style="margin-bottom: 0.8rem;">🪛 <strong>Screwdriver</strong><br/>turns screws</div>
+<div style="margin-bottom: 0.8rem;">🌐 <strong>Manual</strong><br/>reads manual on ikea.com</div>
+
 </div>
 </div>
 
@@ -198,13 +198,15 @@ A collection of tools with labels describing what each tool should be used for
 <h3 style="text-align: center; color: #7747ff; margin-bottom: 1rem;">Agent</h3>
 <div style="text-align: center; font-size: 0.9rem; line-height: 1.8;">
 <div style="background: #f5f0ff; padding: 0.6rem; border-radius: 8px; margin-bottom: 0.8rem;">
-<strong>You:</strong> "Build me a bookshelf"
+<strong>You:</strong> "Assemble this IKEA bookshelf"
 </div>
 <div style="font-size: 0.85rem; color: #666;">
-📖 Reads labels<br/>
-📏 Measures<br/>
-🪚 Cuts<br/>
-🔨 Assembles
+📖 Reads tools description from MCP<br/>
+<span style="color: #ccc;">───</span><br/>
+🌐 Reads manual on ikea.com<br/>
+📏 Measures with ruler<br/>
+🔫 Drills holes with drill<br/>
+🪛 Screws with screwdriver<br/>
 </div>
 </div>
 </div>
@@ -692,11 +694,6 @@ class: text-center
 ---
 
 # Thanks for Listening!
-
-<div class="mt-8 text-2xl">
-Questions?
-</div>
-
 
 <!-- Write a travel inspiration email in Airbnb's style. Tone: warm, human, wanderlust-driven. Structure: full-bleed destination hero → friendly headline about belonging anywhere → two-sentence intro → three-column destination cards each with a photo, location name, and starting price → host spotlight split-screen with photo and short quote → CTA: 'Start Exploring.' Warm coral and white palette. -->
 
