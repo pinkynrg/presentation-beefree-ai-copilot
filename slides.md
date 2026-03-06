@@ -249,9 +249,9 @@ config:
 ---
 graph LR
     U([User Request]) --> A["Guardrail Agent<br/><small>gpt-5-nano</small>"]
-    A -->|email design related| B["Router Agent<br/><small>gpt-5.2</small>"]
+    A -->|email design related| B["Router Agent<br/><small>gpt-5-nano</small>"]
     A -->|not email design related| Z([Output: Not Related])
-    B -->|Edit| C["Editor Agent<br/><small>gpt-5-nano</small>"]
+    B -->|Edit| C["Editor Agent<br/><small>gpt-5.2</small>"]
     B -->|Create| D["Prompt Enhancer Agent<br/><small>gpt-5-nano</small>"]
       D --> E["Planner Agent<br/><small>gpt-5.2</small>"]
     subgraph What we just saw
