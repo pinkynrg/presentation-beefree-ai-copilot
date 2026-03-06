@@ -4,6 +4,7 @@ import AgentVsToolsAnimated from './AgentVsToolsAnimated.jsx'
 import Capabilities from './Capabilities.jsx'
 import DemoGrid from './DemoGrid.jsx'
 import VirtualDesktop from './VirtualDesktop.jsx'
+import PlanExecuteAnimation from './PlanExecuteAnimation.jsx'
 
 export default {
   BeforeAfter,
@@ -12,4 +13,5 @@ export default {
   Capabilities,
   DemoGrid,
   VirtualDesktop,
+  PlanExecuteAnimation,
 }

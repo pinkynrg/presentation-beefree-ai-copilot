@@ -53,7 +53,7 @@ export default function BeforeAfter() {
               <strong>User:</strong> "Create 3-section email with blue background"
             </div>
 
-            <div style={{ fontWeight: 'bold', marginBottom: '0.2rem', fontSize: '0.7rem' }}>Agent tool calls:</div>
+            <div style={{ fontWeight: 'bold', marginBottom: '0.2rem', fontSize: '0.7rem' }}>AI Co-Pilot:</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem', marginBottom: '0.3rem' }}>
               <div style={fadeStyle(step >= 1)}>
                 <code style={codeStyle}>Add section: #0000ff</code>
@@ -91,7 +91,7 @@ export default function BeforeAfter() {
       {/* After panel */}
       <div>
         <h2 style={{ textAlign: 'center', color: '#22bb33', marginBottom: '0.2rem', fontSize: '0.95rem' }}>
-          ✅ After: Plan → Execute
+          ✅ After: Guideline → Planner → Executor
         </h2>
         <div style={{ background: '#f0fff4', padding: '0.5rem 0.7rem', borderRadius: '12px', border: '2px solid #bbf7d0' }}>
           <div style={{ fontSize: '0.65rem' }}>
@@ -99,7 +99,7 @@ export default function BeforeAfter() {
               <strong>User:</strong> "Create 3-section email with blue background"
             </div>
 
-            <div style={{ fontWeight: 'bold', marginBottom: '0.2rem', fontSize: '0.7rem' }}>Planner generates plan and Executor runs it:</div>
+            <div style={{ fontWeight: 'bold', marginBottom: '0.2rem', fontSize: '0.7rem' }}>AI Co-Pilot:</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem', marginBottom: '0.3rem' }}>
               <div style={fadeStyle(step >= 1)}>
                 <code style={codeStyle}>Set primary color: #0000ff</code>

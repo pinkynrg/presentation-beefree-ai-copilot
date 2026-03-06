@@ -163,9 +163,9 @@ layout: center
 
 1. Agent vs Tools
 2. Beefree AI Co-Pilot Capabilities
-3. Architecture
-4. The challenges we faced
-5. How we solved them
+3. The challenges we faced
+4. How we solved them
+5. Architecture
 6. Lessons Learned
 7. Live Demo
 8. What's Next
@@ -187,6 +187,51 @@ layout: center
 # Beefree AI Co-Pilot Capabilities
 
 <React is="Capabilities" />
+
+---
+
+# The challenges we faced
+
+1. **Consistency**: Tools get called correctly, but not consistently. <br/>Use blue in row 1, red in row 2, blue again in row 3.
+2. **Probabilistic execution**: Just because you ask for something in a prompt doesn't guarantee it happens 100% of the time. LLMs are non-deterministic by nature.
+3. **Prompt engineering**: Every line you add to the system prompt competes with every line already there. By adding you dilute.
+4. **Evaluating correctness**: You can't unit test an agent. Knowing if it's doing a good job is non-trivial.
+5. **LLMs know HTML, CSS, Python, React** and other common languages fluently. 
+On the other hand **LLMs don't know Beefree custom JSON format** or our specific **MCP toolset**.
+
+
+> Our email JSON format is harder to work with but it's **why our emails render correctly on many email clients**.
+
+---
+
+# How we solved them
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+
+<div>
+
+**The key insight:** Separate planning from execution.
+
+1. **Plan guideline ensures consistency by design**: We define a strict plan schema that constrains what the agent can express, making inconsistent outputs structurally impossible.
+
+2. **Planner agent creates a structured plan**: Instead of calling tools directly, the agent generates a detailed plan following the guideline.
+
+3. **Executor runs the plan deterministically**: Tool calls are no longer made by the agent. The executor reads the plan and programmatically calls the right tools in the right sequence.
+
+
+</div>
+
+<div>
+<React is="PlanExecuteAnimation" />
+</div>
+
+</div>
+
+---
+class: '!p-4 no-watermark'
+---
+
+<React is="BeforeAfter" />
 
 ---
 layout: default
@@ -211,8 +256,10 @@ graph LR
     A -->|not email design related| Z([Output: Not Related])
     B -->|Edit| C[Editor]
     B -->|Create| D[Prompt Enhancer]
-    D --> E[Planner]
-    E --> F((Executor))
+      D --> E[Planner]
+    subgraph What we just saw
+      E --> F((Executor))
+    end
     C -.-> H1{{MCP Tools}}
     F -.-> H2{{MCP Tools}}
     C --> O([Output])
@@ -233,41 +280,6 @@ graph LR
 
 </div>
 
----
-
-# The challenges we faced
-
-1. **Consistency**: Tools get called correctly, but not consistently. <br/>Use blue in row 1, red in row 2, blue again in row 3.
-2. **Probabilistic execution**: Just because you ask for something in a prompt doesn't guarantee it happens 100% of the time. LLMs are non-deterministic by nature.
-3. **Prompt engineering**: Every line you add to the system prompt competes with every line already there. By adding you dilute.
-4. **Evaluating correctness**: You can't unit test an agent. Knowing if it's doing a good job is non-trivial.
-5. **LLMs know HTML, CSS, Python, React** and other common languages fluently. 
-On the other hand **LLMs don't know Beefree custom JSON format** or our specific **MCP toolset**.
-
-
-> Our email JSON format is harder to work with but it's **why our emails render correctly on many email clients**.
-
----
-
-# How we solved them
-
-**The key insight:** Separate planning from execution.
-
-1. **Planner creates a structured plan**: Instead of letting the agent call tools directly, we ask it to generate a detailed plan in a predefined JSON format.
-
-2. **Executor runs the plan deterministically**: Tool calls are no longer made by the agent. The executor reads the plan and programmatically calls the right tools in the right sequence.
-
-<div class="mt-8">
-
-> By moving tool calls out of the agent's hands, we turned an unreliable process into a predictable one.
-
-</div>
-
----
-class: '!p-4 no-watermark'
----
-
-<React is="BeforeAfter" />
 
 ---
 
@@ -276,11 +288,16 @@ class: '!p-4 no-watermark'
 1. **A structured plan is likely one key to good results.**  
    A tight output schema changes everything.
 
-2. **Less AI is sometimes the right call.**  
+2. **Adding lines to the system prompt is overrated.**  
+   Every new instruction competes with the rest. More words, less focus.
+
+3. **Less AI is sometimes the right call!**  
    Deterministic beats autonomous when you need reliability.
 
-3. **Prompt engineering is never done, and addition is the enemy.**  
-   Every edge case someone wants to fix with a new line. Resist it.
+4. **More complexity? More agents, smaller scope.**  
+   Don't give one LLM a bigger prompt. Split the work across specialized agents that each do one thing well.
+
+
 
 ---
 layout: center
@@ -304,19 +321,23 @@ class: '!p-0 no-watermark'
 
 # What's Next
 
-Some of the next steps we are excited about:
-
 - **Parallelizing the planner**  
-  Split into an orchestrator + N parallel section planners. Faster, and better at complex multi-section emails.
+  Get faster and more precise with `planning orchestrator` + `N parallel section planners`.
 
 - **UX refinements**  
-  Better feedback loops: revert actions, loading states, and smoother editing experience.
+  Better feedback loops: revert SDK actions and smoother editing experience.
 
 - **Personalized context**  
-  Smart copy suggestions and learning from your patterns: styles, templates, and workflows you use most.
+  Learning from customer's styles and templates.
 
 - **Hackaton: Fine-tuning open source LLM on our toolset (to explore during cool-downs)**  
   Instead of teaching the LLM our JSON through prompts, train it to speak our MCP tools natively.
+
+<div class="mt-8" style="background: #f3f0ff; border-left: 4px solid #7747ff; padding: 0.8rem 1rem; border-radius: 0 8px 8px 0;">
+
+💡 **Interesting fact:** We've already converted our template catalog into MCP tool call sequences, the training data is ready. Now exploring fine-tuning.
+
+</div>
 
 ---
 layout: center
