@@ -10,7 +10,7 @@ export default function BeforeAfter() {
   useEffect(() => {
     if (step === 0) {
       const oldAgentInterval = setInterval(() => {
-        setOldAgentStep((s) => Math.min(s + 1, 8))
+        setOldAgentStep((s) => Math.min(s + 1, 12))
       }, 500) // Add a section every 0.5 seconds
       return () => clearInterval(oldAgentInterval)
     } else {
@@ -20,17 +20,17 @@ export default function BeforeAfter() {
   }, [step])
 
   useEffect(() => {
-    // First step (planner thinking) takes 5 seconds
+    // First step (planner thinking) takes 7 seconds to allow all 12 sections to be added with buffer
     if (step === 0) {
       const timeout = setTimeout(() => {
         setStep(1)
-      }, 5000)
+      }, 7000)
       return () => clearTimeout(timeout)
     }
     
     // Subsequent steps use faster interval for executor
     const interval = setInterval(() => {
-      setStep((s) => (s + 1) % 11)
+      setStep((s) => (s + 1) % 15)
     }, 500)
     return () => clearInterval(interval)
   }, [step])
@@ -50,7 +50,7 @@ export default function BeforeAfter() {
     transition: 'opacity 0.4s',
   })
 
-  const EmailRow = ({ color, visible }) => (
+  const EmailRow = ({ color, visible, content = 'text' }) => (
     <div style={{
       background: color,
       height: '20px',
@@ -61,7 +61,42 @@ export default function BeforeAfter() {
       justifyContent: 'center',
       alignItems: 'stretch',
     }}>
-      <div style={{ background: 'white', width: '65%' }} />
+      <div style={{ 
+        background: 'white', 
+        width: '65%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0 4px',
+        gap: '2px',
+      }}>
+        {content === 'image' && (
+          <div style={{
+            width: '100%',
+            height: '12px',
+            background: '#e0e0e0',
+            borderRadius: '2px',
+          }} />
+        )}
+        {content === 'text' && (
+          <>
+            <div style={{ width: '80%', height: '3px', background: '#d0d0d0', borderRadius: '1px' }} />
+          </>
+        )}
+        {content === 'button' && (
+          <div style={{
+            padding: '2px 8px',
+            background: color,
+            borderRadius: '2px',
+            fontSize: '6px',
+            color: 'white',
+            fontWeight: 'bold',
+          }}>CTA</div>
+        )}
+        {content === 'heading' && (
+          <div style={{ width: '60%', height: '5px', background: '#808080', borderRadius: '1px' }} />
+        )}
+      </div>
     </div>
   )
 
@@ -111,6 +146,10 @@ export default function BeforeAfter() {
                     'Add section: #87CEEB',
                     'Add section: #0000ff',
                     'Add section: #4682B4',
+                    'Add section: #0000ff',
+                    'Add section: #87CEEB',
+                    'Add section: #4169E1',
+                    'Add section: #0000ff',
                   ]
                   
                   // Each step advances by one instruction
@@ -156,14 +195,18 @@ export default function BeforeAfter() {
                 maxHeight="280px"
                 stagingContent={
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                    <EmailRow color="#0000ff" visible={oldAgentStep >= 1} />
-                    <EmailRow color="#87CEEB" visible={oldAgentStep >= 2} />
-                    <EmailRow color="#0000ff" visible={oldAgentStep >= 3} />
-                    <EmailRow color="#4169E1" visible={oldAgentStep >= 4} />
-                    <EmailRow color="#0000ff" visible={oldAgentStep >= 5} />
-                    <EmailRow color="#87CEEB" visible={oldAgentStep >= 6} />
-                    <EmailRow color="#0000ff" visible={oldAgentStep >= 7} />
-                    <EmailRow color="#4682B4" visible={oldAgentStep >= 8} />
+                    <EmailRow color="#0000ff" visible={oldAgentStep >= 1} content="heading" />
+                    <EmailRow color="#87CEEB" visible={oldAgentStep >= 2} content="image" />
+                    <EmailRow color="#0000ff" visible={oldAgentStep >= 3} content="text" />
+                    <EmailRow color="#4169E1" visible={oldAgentStep >= 4} content="button" />
+                    <EmailRow color="#0000ff" visible={oldAgentStep >= 5} content="text" />
+                    <EmailRow color="#87CEEB" visible={oldAgentStep >= 6} content="image" />
+                    <EmailRow color="#0000ff" visible={oldAgentStep >= 7} content="heading" />
+                    <EmailRow color="#4682B4" visible={oldAgentStep >= 8} content="button" />
+                    <EmailRow color="#0000ff" visible={oldAgentStep >= 9} content="text" />
+                    <EmailRow color="#87CEEB" visible={oldAgentStep >= 10} content="image" />
+                    <EmailRow color="#4169E1" visible={oldAgentStep >= 11} content="heading" />
+                    <EmailRow color="#0000ff" visible={oldAgentStep >= 12} content="button" />
                   </div>
                 }
               />
@@ -235,7 +278,7 @@ export default function BeforeAfter() {
                       fontFamily: 'monospace',
                       transition: 'all 0.3s',
                     }}>
-                      {step >= 1 ? '8' : '.'.repeat(dots || 1)}
+                      {step >= 1 ? '12' : '.'.repeat(dots || 1)}
                     </span>
                   </div>
                 </div>
@@ -279,8 +322,7 @@ export default function BeforeAfter() {
                       gap: '0.2rem',
                       transform: `translateY(-${Math.max(0, (step - 2)) * 26}px)`,
                       transition: 'transform 0.5s ease-out',
-                    }}>
-                      {(() => {
+                    }}>                      {(() => {
                         const instructions = [
                           'Add section 1: Primary color',
                           'Add section 2: Primary color',
@@ -290,6 +332,10 @@ export default function BeforeAfter() {
                           'Add section 6: Primary color',
                           'Add section 7: Primary color',
                           'Add section 8: Primary color',
+                          'Add section 9: Primary color',
+                          'Add section 10: Primary color',
+                          'Add section 11: Primary color',
+                          'Add section 12: Primary color',
                         ]
                         
                         const currentIndex = step - 2
@@ -336,14 +382,18 @@ export default function BeforeAfter() {
                 maxHeight="280px"
                 stagingContent={
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                    <EmailRow color="#0000ff" visible={step >= 2} />
-                    <EmailRow color="#0000ff" visible={step >= 3} />
-                    <EmailRow color="#0000ff" visible={step >= 4} />
-                    <EmailRow color="#0000ff" visible={step >= 5} />
-                    <EmailRow color="#0000ff" visible={step >= 6} />
-                    <EmailRow color="#0000ff" visible={step >= 7} />
-                    <EmailRow color="#0000ff" visible={step >= 8} />
-                    <EmailRow color="#0000ff" visible={step >= 9} />
+                    <EmailRow color="#0000ff" visible={step >= 2} content="heading" />
+                    <EmailRow color="#0000ff" visible={step >= 3} content="image" />
+                    <EmailRow color="#0000ff" visible={step >= 4} content="text" />
+                    <EmailRow color="#0000ff" visible={step >= 5} content="button" />
+                    <EmailRow color="#0000ff" visible={step >= 6} content="text" />
+                    <EmailRow color="#0000ff" visible={step >= 7} content="image" />
+                    <EmailRow color="#0000ff" visible={step >= 8} content="heading" />
+                    <EmailRow color="#0000ff" visible={step >= 9} content="button" />
+                    <EmailRow color="#0000ff" visible={step >= 10} content="text" />
+                    <EmailRow color="#0000ff" visible={step >= 11} content="image" />
+                    <EmailRow color="#0000ff" visible={step >= 12} content="heading" />
+                    <EmailRow color="#0000ff" visible={step >= 13} content="button" />
                   </div>
                 }
               />
