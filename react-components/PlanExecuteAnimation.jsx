@@ -24,7 +24,7 @@ export default function PlanExecuteAnimation() {
       setExecTick(0)
       const tickInterval = setInterval(() => {
         setExecTick((t) => {
-          if (t >= 4) {
+          if (t >= 6) {
             clearInterval(tickInterval)
             return t
           }
