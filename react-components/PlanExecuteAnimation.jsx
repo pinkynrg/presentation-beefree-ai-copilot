@@ -117,7 +117,7 @@ export default function PlanExecuteAnimation() {
       {/* Step 0-1: Plan Guideline (schema) */}
       <div style={cardStyle(step >= 0)}>
         <div style={{ fontWeight: 700, marginBottom: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-          <span>📋</span> <span style={tagStyle(cardColors.default.accent, step >= 0)}>Guideline</span>
+          <span>📋</span> <span style={tagStyle(cardColors.default.accent, step >= 0)}>Plan guideline</span>
         </div>
         {fields.map((f) => (
           <div key={f.label} style={fieldStyle(false)}>

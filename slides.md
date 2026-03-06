@@ -210,13 +210,12 @@ On the other hand **LLMs don't know Beefree custom JSON format** or our specific
 
 <div>
 
-**The key insight:** Separate planning from execution.
 
-1. **Plan guideline ensures consistency by design**: We define a strict plan schema that constrains what the agent can express, making inconsistent outputs structurally impossible.
+1. **Plan guideline** <br/> We define a strict plan schema that constrains what the agent can express, making inconsistent outputs structurally impossible.
 
-2. **Planner agent creates a structured plan**: Instead of calling tools directly, the agent generates a detailed plan following the guideline.
+2. **Planner agent** <br/> Instead of calling tools directly, the agent generates a detailed plan following the guideline.
 
-3. **Executor runs the plan deterministically**: Tool calls are no longer made by the agent. The executor reads the plan and programmatically calls the right tools in the right sequence.
+3. **Executor** <br/> Tool calls are no longer made by the agent. The executor reads the plan and programmatically calls the right tools in the right sequence.
 
 
 </div>
